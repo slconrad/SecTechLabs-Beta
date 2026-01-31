@@ -63,6 +63,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
@@ -174,7 +175,21 @@
             width: 100%;
             padding: 20px 0;
             z-index: 10;
+            transition: background 0.25s ease, padding 0.18s ease, box-shadow 0.18s ease;
         }
+        header.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            background: rgba(9,37,82,0.92);
+            box-shadow: 0 6px 20px rgba(6,20,45,0.25);
+            z-index: 100001;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        header.sticky .logo { font-size: 1.25rem; }
         .nav-flex {
             display: flex;
             justify-content: space-between;
@@ -273,6 +288,28 @@
             overflow: hidden;
             z-index: 1;
         }
+        /* Edge fades: gentle overlays to hide abrupt wave edges on browsers without mask support */
+        .waves-container::before,
+        .waves-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 96px;
+            pointer-events: none;
+            z-index: 4; /* above waves but below content */
+            background: linear-gradient(to right, rgba(13,61,145,1) 0%, rgba(13,61,145,0) 100%);
+            mix-blend-mode: normal;
+        }
+        .waves-container::after {
+            right: 0;
+            left: auto;
+            background: linear-gradient(to left, rgba(13,61,145,1) 0%, rgba(13,61,145,0) 100%);
+        }
+        /* Reduce overlay presence on very small screens */
+        @media (max-width: 420px) {
+            .waves-container::before, .waves-container::after { width: 56px; }
+        }
 
         .wave {
             position: absolute;
@@ -284,12 +321,19 @@
             background-position: bottom;
             background-size: 50% auto;
             transform: translate3d(0, 0, 0);
+            /* Taper edges smoothly using mask (and -webkit- prefix for Safari) */
+            -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
         }
 
         /* Front Wave (Fastest, Lightest) */
         .wave.w1 {
             /* SVG Wave Data URI (URL-encoded) */
-            background-image: url("data:image/svg+xml,%3Csvg%20viewBox=%220%200%201200%20120%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d=%22M0,60%20C150,120%20450,0%20600,60%20C750,120%201050,0%201200,60%20L1200,120%20L0,120%20Z%22%20fill=%22rgba(255,255,255,0.1)%22/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,60 C150,120 450,0 600,60 C750,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='rgba(255, 255, 255, 0.1)'/%3E%3C/svg%3E");
             height: 180px;
             z-index: 3;
             animation: moveWave 15s linear infinite;
@@ -297,7 +341,7 @@
 
         /* Middle Wave */
         .wave.w2 {
-            background-image: url("data:image/svg+xml,%3Csvg%20viewBox=%220%200%201200%20120%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d=%22M0,60%20C200,100%20400,20%20600,60%20C800,100%201000,20%201200,60%20L1200,120%20L0,120%20Z%22%20fill=%22rgba(255,255,255,0.07)%22/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z' fill='rgba(255, 255, 255, 0.07)'/%3E%3C/svg%3E");
             height: 220px;
             z-index: 2;
             animation: moveWave 25s linear infinite reverse;
@@ -305,7 +349,7 @@
 
         /* Back Wave (Slowest, Darker) */
         .wave.w3 {
-            background-image: url("data:image/svg+xml,%3Csvg%20viewBox=%220%200%201200%20120%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d=%22M0,70%20C300,110%20500,30%20600,70%20C700,110%20900,30%201200,70%20L1200,120%20L0,120%20Z%22%20fill=%22rgba(255,255,255,0.05)%22/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,70 C300,110 500,30 600,70 C700,110 900,30 1200,70 L1200,120 L0,120 Z' fill='rgba(255, 255, 255, 0.05)'/%3E%3C/svg%3E");
             height: 260px;
             z-index: 1;
             animation: moveWave 35s linear infinite;
@@ -314,6 +358,14 @@
         @keyframes moveWave {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+
+        @keyframes moveWave {
+            0% { transform: translate3d(0, 0, 0); }
+            25% { transform: translate3d(-25%, 6px, 0); }
+            50% { transform: translate3d(-50%, 0, 0); }
+            75% { transform: translate3d(-75%, -6px, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
         }
 
         /* --- INTRO / PROBLEM SECTION (Dark Blue Band) --- */
@@ -343,7 +395,7 @@
 
         /* --- FEATURE SECTIONS --- */
         .feature-section {
-            padding: 100px 0;
+            padding: 40px 0;
             position: relative;
         }
         /* Angled background for "Web Development" */
@@ -378,10 +430,42 @@
             .feature-img { width: clamp(100px, 60vw, 220px); }
         }
         @media (min-width: 1400px) {
-            .feature-img { width: 480px; }
+            .feature-img { width: 380px; }
         }
-        .feature-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: var(--text-dark); font-size: 0.95rem; }
+        .feature-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: var(--text-dark); font-size: 1.03rem; line-height: 1.5; }
         .check { color: #00c853; font-weight: bold; }
+
+        /* Feature text and headings */
+        .feature-section p { font-size: clamp(1rem, 1.2vw + 0.9rem, 1.1rem); color: rgba(8,21,39,0.9); line-height: 1.6; margin-bottom: 18px; }
+        .feature-section h3 { font-size: clamp(1.4rem, 2.2vw + 0.8rem, 1.95rem); color: #071E3B; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.2px; position: relative; padding-left: 20px; }
+        .feature-section h3::before { content: '';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 64%;
+            background: linear-gradient(180deg, #2f76d6 0%, #5aa3ff 100%);
+            border-radius: 4px;
+            opacity: 0.98;
+        }
+        @media (max-width: 768px) {
+            .feature-section h3 { padding-left: 14px; }
+            .feature-section h3::before { left: 0; width: 4px; height: 56%; }
+        }
+
+        /* Center checklist text on mobile */
+        @media (max-width: 600px) {
+            .feature-list { display: grid; grid-auto-rows: auto; gap: 10px; justify-items: center; padding-left: 0; }
+            .feature-list li { display: flex; justify-content: center; text-align: center; white-space: normal; padding: 6px 12px; }
+            .feature-list li .check { margin-right: 8px; }
+        }
+
+        /* Badge for features */
+        .feature-badge { display: inline-block; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(10,32,64,0.06); }
+        .feature-badge--dev { background: #e3f2fd; color:#1565c0; }
+        .feature-badge--ecom { background: #fff3e0; color:#ef6c00; }
+        .feature-badge--growth { background: #e8f5e9; color:#2e7d32; }
 
         /* --- CLIENTS SECTION --- */
         .clients-section {
@@ -435,7 +519,7 @@
 
     <header>
         <div class="container nav-flex">
-            <a href="/" class="logo" aria-label="Security Tech Labs home">Security Tech Labs</a>
+            <a href="#main" class="logo" aria-label="Scroll to top">Security Tech Labs</a>
             <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" aria-controls="primary-navigation">☰</button>
             <nav id="primary-navigation" class="nav-links" role="navigation" aria-label="Primary navigation">
                 <a href="#services">Services</a>
@@ -489,7 +573,7 @@
     <section class="feature-section feature-bg-1" id="services">
         <div class="container zig-zag-row">
             <div class="text-col">
-                <div style="background: #e3f2fd; color:#1565c0; padding:5px 10px; border-radius:4px; display:inline-block; font-size:0.8rem; font-weight:700; margin-bottom:15px;">DEVELOPMENT</div>
+                <div class="feature-badge feature-badge--dev">DEVELOPMENT</div>
                 <h3>Custom Web Development</h3>
                 <p>We don't just use templates; we build robust architectures tailored to your specific business logic. From simple landing pages to complex web applications.</p>
                 <ul class="feature-list">
@@ -507,8 +591,8 @@
     <section class="feature-section feature-bg-2">
         <div class="container zig-zag-row reverse">
             <div class="text-col">
-                <div style="background: #fff3e0; color:#ef6c00; padding:5px 10px; border-radius:4px; display:inline-block; font-size:0.8rem; font-weight:700; margin-bottom:15px;">E-COMMERCE</div>
-                <h3>Seamless Shopping Experiences</h3>
+                <div class="feature-badge feature-badge--ecom">E-COMMERCE</div>
+                <h3>Easy Shopping Experiences</h3>
                 <p>Turn visitors into loyal customers with intuitive e-commerce flows. We focus on reducing friction at checkout and showcasing products beautifully.</p>
                 <ul class="feature-list">
                     <li><span class="check">✓</span> Inventory Management Systems</li>
@@ -525,7 +609,7 @@
     <section class="feature-section feature-bg-1" style="padding-top:50px;">
         <div class="container zig-zag-row">
             <div class="text-col">
-                <div style="background: #e8f5e9; color:#2e7d32; padding:5px 10px; border-radius:4px; display:inline-block; font-size:0.8rem; font-weight:700; margin-bottom:15px;">GROWTH</div>
+                <div class="feature-badge feature-badge--growth">GROWTH</div>
                 <h3>SEO & Digital Marketing</h3>
                 <p>A beautiful site is useless if no one sees it. We implement local SEO strategies specifically designed for the East Texas market.</p>
                 <ul class="feature-list">
@@ -639,6 +723,7 @@
 
             var btn = document.querySelector('.menu-toggle');
             var nav = document.querySelector('.nav-links');
+            var headerEl = document.querySelector('header');
             if (btn && nav) {
                 function closeMenu() {
                     nav.classList.remove('open');
@@ -652,35 +737,82 @@
                     btn.setAttribute('aria-expanded', 'true');
                     btn.textContent = '✕';
                     btn.setAttribute('aria-label', 'Close menu');
+                    // prevent background scroll on small screens
                     if (window.matchMedia('(max-width: 768px)').matches) {
                         document.body.style.overflow = 'hidden';
                     }
+                    // ensure the nav panel sits below the header
+                    updateNavTop();
                     // Move focus to first link for keyboard users
                     var first = nav.querySelector('a');
                     if (first) first.focus();
                 }
+
+                // Adjust nav top to match header height so the open panel is positioned correctly
+                function updateNavTop() {
+                    if (!headerEl || !nav) return;
+                    var h = headerEl.offsetHeight || 0;
+                    // nav is positioned fixed; offset it by header height so it does not hide under the header
+                    nav.style.top = h + 'px';
+                }
+
+                // Toggle sticky header on scroll
+                function updateSticky() {
+                    if (!headerEl) return;
+                    if (window.scrollY > 30) {
+                        if (!headerEl.classList.contains('sticky')) headerEl.classList.add('sticky');
+                    } else {
+                        if (headerEl.classList.contains('sticky')) headerEl.classList.remove('sticky');
+                    }
+                    // adjust nav top after header size change
+                    updateNavTop();
+                }
+
                 btn.addEventListener('click', function() {
                     if (nav.classList.contains('open')) closeMenu(); else openMenu();
                 });
-                // Close when a nav link is clicked (mobile) — delay so browser can handle the anchor navigation
+
+                // Close when a nav link is clicked (mobile) — delay so browser can handle the anchor navigation/scroll
                 nav.addEventListener('click', function(e) {
                     if (e.target && e.target.tagName === 'A' && window.matchMedia('(max-width: 768px)').matches) {
                         // Allow the browser a single frame to perform the anchor navigation/scroll
                         window.setTimeout(closeMenu, 60);
                     }
                 });
-                // Close menu when resizing wider than mobile
+
+                // Close menu when resizing wider than mobile and keep nav aligned
                 window.addEventListener('resize', function() {
+                    updateNavTop();
                     if (window.matchMedia('(min-width: 769px)').matches && nav.classList.contains('open')) {
                         closeMenu();
                     }
                 });
+
                 // Close menu when pressing Escape
                 document.addEventListener('keydown', function(e) {
                     if (e.key === 'Escape' && nav.classList.contains('open')) {
                         closeMenu();
                     }
                 });
+
+                // Logo click: smooth scroll to top/main and close menu if open
+                var logo = document.querySelector('.logo');
+                if (logo) {
+                    logo.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        var main = document.getElementById('main');
+                        if (main) main.scrollIntoView({ behavior: 'smooth' });
+                        if (nav.classList.contains('open')) {
+                            // delay close slightly to allow the scroll to begin
+                            window.setTimeout(closeMenu, 80);
+                        }
+                    });
+                }
+
+                // initialize sticky state and nav offsets
+                updateSticky();
+                // use passive listener for performance
+                window.addEventListener('scroll', updateSticky, { passive: true });
             }
         });
     </script>
