@@ -65,7 +65,7 @@
 
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
             color: var(--text-dark);
             background-color: var(--off-white);
             line-height: 1.6;
@@ -75,7 +75,9 @@
         h1, h2, h3 { font-weight: 700; line-height: 1.2; }
         a { text-decoration: none; transition: 0.3s; }
         ul { list-style: none; }
-
+        p {
+            font-family: 'Inter', sans-serif;
+        }
         /* --- UTILITIES --- */
         .container {
             max-width: 1100px;
@@ -267,7 +269,7 @@
             /* Slight push up to center content visually above waves */
             margin-bottom: 50px;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: 1px; }
         .hero p { font-size: 1.25rem; color: rgba(255,255,255,0.9); margin-bottom: 40px; }
 
         /* CTA group spacing */
@@ -513,6 +515,170 @@
             .nav-links { display: none; }
             .menu-toggle { display: block; }
         }
+                /* The Grid System */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Stacked on mobile */
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* PC Side-by-Side View */
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr; /* Two columns on PC */
+            }
+        }
+
+        /* Modern Card Styling */
+        .modern-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid #eee;
+        }
+
+        /* The Uplift Effect */
+        .modern-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: #d1d1d1;
+        }
+
+        /* Elegant Image Zoom */
+        .card-image-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .modern-card:hover .card-image {
+            transform: scale(1.1);
+        }
+
+        /* Typography Styling */
+        .card-content {
+            padding: 2.5rem;
+        }
+
+        .card-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .card-link {
+            color: #0044cc;
+            text-decoration: none;
+            font-weight: 400;
+            border-bottom: 1px solid transparent;
+            transition: border 0.3s ease;
+        }
+
+        .card-link:hover {
+            border-bottom: 1px solid #0044cc;
+        }
+        .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.client-card {
+    position: relative;
+    background: #ffffff;
+    padding: 40px 30px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden; /* Clips the flourish animation */
+}
+
+/* The Accent Line Flourish */
+.accent-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #0044cc; /* Replace with your brand color */
+    transform: scaleY(0.2); /* Small line by default */
+    transition: transform 0.4s ease;
+    transform-origin: center;
+}
+
+.client-card:hover .accent-line {
+    transform: scaleY(1); /* Full height on hover */
+}
+
+/* Background Numbering Flourish */
+.flourish {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.03); /* Extremely subtle watermarked number */
+    font-style: italic;
+    transition: all 0.4s ease;
+}
+
+.client-card:hover .flourish {
+    color: rgba(0, 68, 204, 0.08);
+    transform: translateY(-10px);
+}
+
+/* Typography */
+.client-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.client-type {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #999;
+    font-weight: 500;
+}
+
+/* Card Hover Elevation */
+.client-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: transparent;
+    cursor: pointer;
+}
+
+.client-card:hover .client-name {
+    color: #c9d5ecde;
+}
     </style>
 </head>
 <body>
@@ -629,40 +795,77 @@
             <h2>Trusted by East Texas Businesses</h2>
             <p style="opacity:0.8; margin-top:10px;">Delivering results for local industry leaders.</p>
 
-            <div class="clients-grid">
-                <div class="client-card">
-                    <div class="client-name">Beagley's Paint</div>
-                    <div class="client-type">Retail & Supply</div>
-                </div>
-                <div class="client-card">
-                    <div class="client-name">Bee Happy Buildings</div>
-                    <div class="client-type">Construction</div>
-                </div>
-                <div class="client-card">
-                    <div class="client-name">Ride Tyler</div>
-                    <div class="client-type">Transportation</div>
-                </div>
-                <div class="client-card">
-                    <div class="client-name">Conrad Wash & Paint</div>
-                    <div class="client-type">Service Industry</div>
-                </div>
-            </div>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+<div class="clients-grid">
+    <div class="client-card">
+        <div class="accent-line"></div>
+        <div class="client-info">
+            <div class="client-name">Beagley's Paint</div>
+            <div class="client-type">Retail & Supply</div>
+        </div>
+        <div class="flourish">01</div>
+    </div>
+
+    <div class="client-card">
+        <div class="accent-line"></div>
+        <div class="client-info">
+            <div class="client-name">Bee Happy Buildings</div>
+            <div class="client-type">Construction</div>
+        </div>
+        <div class="flourish">02</div>
+    </div>
+
+    <div class="client-card">
+        <div class="accent-line"></div>
+        <div class="client-info">
+            <div class="client-name">Ride Tyler</div>
+            <div class="client-type">Transportation</div>
+        </div>
+        <div class="flourish">03</div>
+    </div>
+
+    <div class="client-card">
+        <div class="accent-line"></div>
+        <div class="client-info">
+            <div class="client-name">Conrad Wash & Paint</div>
+            <div class="client-type">Service Industry</div>
+        </div>
+        <div class="flourish">04</div>
+    </div>
+</div>
         </div>
     </section>
 
     <section id="about" class="feature-section">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>Security Tech Labs is a Tyler, TX-based web development and digital marketing agency focused on performance, security, and results.</p>
-        </div>
-    </section>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-    <section id="contact" class="feature-section" style="background: #f8fbff;">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Ready to start? Email us at <a href="mailto:hello@securitytechlabs.com">hello@securitytechlabs.com</a> or call <a href="tel:+1-555-555-5555">(555) 555-5555</a>.</p>
+<section class="feature-section">
+    <div class="container">
+        <div class="card-grid">
+            <div class="modern-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Security Tech" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2>About Us</h2>
+                    <p>Security Tech Labs is a Tyler, TX-based web development and digital marketing agency focused on performance, security, and results.</p>
+                </div>
+            </div>
+
+            <div class="modern-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Contact Us" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2>Contact</h2>
+                    <p>Ready to start? Email us at <a href="mailto:hello@securitytechlabs.com" class="card-link">hello@securitytechlabs.com</a> or call <a href="tel:+1-555-555-5555" class="card-link">(555) 555-5555</a>.</p>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+</section>
     </main>
 
     <footer>
