@@ -15,7 +15,7 @@
     <meta name="twitter:title" content="Security Tech Labs | Web & E-Commerce Development East Texas">
     <meta name="twitter:description" content="Usability. Functionality. Performance. We build digital experiences that drive growth.">
     <meta name="twitter:image" content="https://www.securitytechlabs.com/logo.png">
-    <meta name="keywords" content="web development Tyler TX, e-commerce East Texas, SEO services, Security Tech Labs, website design, Beagley's Paint, Ride Tyler">
+    <meta name="keywords" content="web development Tyler TX, SEO landing pages East Texas, digital marketing Tyler TX, paid ads East Texas, video production Tyler TX, e-commerce East Texas, content writing, email marketing, Security Tech Labs, small business website design">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.securitytechlabs.com">
 
@@ -42,644 +42,18 @@
       "priceRange": "$$",
       "makesOffer": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Landing Pages" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce Solutions" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO & Digital Marketing" } }
-      ]
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO & Paid Advertising" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video Production" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Photography" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Writing & Email Campaigns" } }
+      ],
+      "telephone": "+1-214-326-0012",
+      "sameAs": ["https://www.facebook.com/securitytechlabs"]
     }
     </script>
-
-    <style>
-        /* --- CSS VARIABLES --- */
-        :root {
-            --primary-blue: #0d47a1;
-            --secondary-blue: #1565c0;
-            --light-blue: #e3f2fd;
-            --accent-blue: #2196f3;
-            --text-dark: #1a2332;
-            --text-light: #546e7a;
-            --white: #ffffff;
-            --off-white: #f8fbff;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Playfair Display', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--off-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 { font-weight: 700; line-height: 1.2; }
-        a { text-decoration: none; transition: 0.3s; }
-        ul { list-style: none; }
-        p {
-            font-family: 'Inter', sans-serif;
-        }
-        /* --- UTILITIES --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-            transform: translateY(0);
-            transition: transform 0.24s ease, background-color 0.24s ease, box-shadow 0.24s ease;
-            position: relative; /* for echo pseudo element */
-            overflow: visible;
-        }
-
-        /* Echo ring */
-        .btn::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 100%;
-            height: 100%;
-            transform: translate(-50%, -50%) scale(1);
-            border-radius: inherit;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Primary button styles */
-        .btn-primary {
-            background-color: var(--accent-blue);
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: #1976d2;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        .btn-primary::after {
-            box-shadow: 0 0 0 2px rgba(33,150,243,0.18), 0 0 0 8px rgba(33,150,243,0.06);
-        }
-
-        /* Secondary button styles */
-        .btn-secondary {
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.4);
-        }
-        .btn-secondary:hover {
-            background-color: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        .btn-secondary::after {
-            box-shadow: 0 0 0 2px rgba(255,255,255,0.16), 0 0 0 8px rgba(255,255,255,0.06);
-        }
-
-        /* Trigger the echo animation on hover / focus */
-        .btn:hover::after,
-        .btn:focus-visible::after {
-            animation: echo 900ms ease-out;
-        }
-
-        @keyframes echo {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.6;
-            }
-            60% {
-                opacity: 0.18;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(2.2);
-                opacity: 0;
-            }
-        }
-
-        /* Accessibility focus state */
-        .btn:focus-visible {
-            outline: 2px solid rgba(255,255,255,0.2);
-            outline-offset: 4px;
-        }
-
-        /* --- HEADER --- */
-        header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 10;
-            transition: background 0.25s ease, padding 0.18s ease, box-shadow 0.18s ease;
-        }
-        header.sticky {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px 0;
-            background: rgba(9,37,82,0.92);
-            box-shadow: 0 6px 20px rgba(6,20,45,0.25);
-            z-index: 100001;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-        }
-        header.sticky .logo { font-size: 1.25rem; }
-        .nav-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo { color: white; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.9rem; font-weight: 500; }
-        .nav-links a:hover { color: white; }
-        .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-        .skip-link:focus { position: static; left: 20px; top: 20px; width: auto; height: auto; background: var(--accent-blue); color: white; padding: 8px 12px; border-radius: 4px; z-index: 9999; text-decoration: none; }
-        .menu-toggle { display: none; background: rgba(255,255,255,0.06); border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 8px 10px; border-radius: 8px; }
-        .menu-toggle[aria-expanded="true"] { background: rgba(255,255,255,0.12); }
-        /* Mobile nav open state */
-        .nav-links.open {
-            display: flex;
-            flex-direction: column;
-            position: fixed; /* place above all content */
-            width: min(52vw, 360px); /* roughly half the viewport on mobile */
-            right: 12px; /* anchored to the right */
-            top: 64px; /* below header */
-            background: rgba(255,255,255,0.92); /* faintly transparent */
-            color: var(--text-dark);
-            padding: 12px 10px;
-            border-radius: 10px;
-            box-shadow: 0 16px 48px rgba(0,0,0,0.16);
-            z-index: 100501; /* ensure above header and hero */
-            gap: 8px;
-            max-height: calc(100vh - 84px); /* prevent overflow past viewport */
-            overflow: auto; /* allow scrolling when menu larger than viewport */
-            -webkit-overflow-scrolling: touch;
-            pointer-events: auto;
-            align-items: stretch; /* allow links to fill width */
-        }
-        .nav-links.open a{
-            color: var(--text-dark);
-            padding: 12px 20px 12px 12px;
-            display:block; /* full-width tappable area */
-            width: 100%;
-            min-height:44px;
-            border-radius:6px;
-            font-weight:600;
-            text-decoration:none;
-            white-space:nowrap;
-            text-align: right; /* align text to the right inside full-width link */
-            z-index: 100502;
-            pointer-events: auto;
-        }
-        .nav-links.open a:focus{ outline: none; background: rgba(13,36,61,0.03); }
-        @media (max-width: 360px){ .nav-links.open{ right:8px; top:60px; padding:10px; } }
-
-        /* Ensure anchor targets are visible beneath the fixed header */
-        #services, #clients, #about, #contact { scroll-margin-top: 90px; }
-        @media (max-width: 480px) { #services, #clients, #about, #contact { scroll-margin-top: 76px; } }
-
-        /* --- HERO SECTION WITH WAVES --- */
-        .hero {
-            position: relative;
-            /* Extra height to show off the waves */
-            height: 90vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            overflow: hidden;
-            background: linear-gradient(180deg, #0a3d91 0%, #1565c0 100%);
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            position: relative;
-            z-index: 10;
-            /* Slight push up to center content visually above waves */
-            margin-bottom: 50px;
-        }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: 1px; }
-        .hero p { font-size: 1.25rem; color: rgba(255,255,255,0.9); margin-bottom: 40px; }
-
-        /* CTA group spacing */
-        .cta-group { display: inline-flex; gap: 28px; justify-content: center; margin-top: 10px; }
-        .cta-group .btn { min-width: 160px; }
-        @media (max-width: 480px) {
-            .cta-group { display: flex; flex-direction: column; gap: 14px; align-items: center; }
-            .cta-group .btn { width: 100%; max-width: 320px; }
-        }
-
-        /* --- WAVE ANIMATION --- */
-        .waves-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-        /* Edge fades: gentle overlays to hide abrupt wave edges on browsers without mask support */
-        .waves-container::before,
-        .waves-container::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 96px;
-            pointer-events: none;
-            z-index: 4; /* above waves but below content */
-            background: linear-gradient(to right, rgba(13,61,145,1) 0%, rgba(13,61,145,0) 100%);
-            mix-blend-mode: normal;
-        }
-        .waves-container::after {
-            right: 0;
-            left: auto;
-            background: linear-gradient(to left, rgba(13,61,145,1) 0%, rgba(13,61,145,0) 100%);
-        }
-        /* Reduce overlay presence on very small screens */
-        @media (max-width: 420px) {
-            .waves-container::before, .waves-container::after { width: 56px; }
-        }
-
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 200%;
-            height: 100%;
-            background-repeat: repeat-x;
-            background-position: bottom;
-            background-size: 50% auto;
-            transform: translate3d(0, 0, 0);
-            /* Taper edges smoothly using mask (and -webkit- prefix for Safari) */
-            -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
-            -webkit-mask-size: 100% 100%;
-            mask-size: 100% 100%;
-            -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
-        }
-
-        /* Front Wave (Fastest, Lightest) */
-        .wave.w1 {
-            /* SVG Wave Data URI (URL-encoded) */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,60 C150,120 450,0 600,60 C750,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='rgba(255, 255, 255, 0.1)'/%3E%3C/svg%3E");
-            height: 180px;
-            z-index: 3;
-            animation: moveWave 15s linear infinite;
-        }
-
-        /* Middle Wave */
-        .wave.w2 {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z' fill='rgba(255, 255, 255, 0.07)'/%3E%3C/svg%3E");
-            height: 220px;
-            z-index: 2;
-            animation: moveWave 25s linear infinite reverse;
-        }
-
-        /* Back Wave (Slowest, Darker) */
-        .wave.w3 {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,70 C300,110 500,30 600,70 C700,110 900,30 1200,70 L1200,120 L0,120 Z' fill='rgba(255, 255, 255, 0.05)'/%3E%3C/svg%3E");
-            height: 260px;
-            z-index: 1;
-            animation: moveWave 35s linear infinite;
-        }
-
-        @keyframes moveWave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        @keyframes moveWave {
-            0% { transform: translate3d(0, 0, 0); }
-            25% { transform: translate3d(-25%, 6px, 0); }
-            50% { transform: translate3d(-50%, 0, 0); }
-            75% { transform: translate3d(-75%, -6px, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
-        }
-
-        /* --- INTRO / PROBLEM SECTION (Dark Blue Band) --- */
-        .intro-band {
-            background-color: #0b3c85; 
-            padding: 80px 0 120px;
-            color: white;
-            text-align: center;
-            position: relative;
-            z-index: 5;
-        }
-        .intro-band h2 { font-size: 2.2rem; margin-bottom: 20px; }
-        .intro-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 50px;
-        }
-        .intro-item {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 300px;
-            text-align: left;
-        }
-        .intro-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
-
-        /* --- FEATURE SECTIONS --- */
-        .feature-section {
-            padding: 40px 0;
-            position: relative;
-        }
-        /* Angled background for "Web Development" */
-        .feature-bg-1 {
-            background: var(--white);
-            clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
-            margin: -50px 0;
-            padding: 100px 0;
-            z-index: 4;
-            position: relative;
-        }
-        /* Angled background for "E-commerce" */
-        .feature-bg-2 {
-            background: #f0f7ff;
-            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
-            margin: -50px 0;
-            padding: 120px 0;
-            z-index: 3;
-            position: relative;
-        }
-
-        .zig-zag-row { display: flex; align-items: center; gap: 60px; }
-        .zig-zag-row.reverse { flex-direction: row-reverse; }
-        .text-col { flex: 1; }
-        .img-col { flex: 1; display:flex; justify-content:center; align-items:center; }
-        .feature-img { width: clamp(200px, 30vw, 420px); aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.12); background: white; border: 5px solid var(--white); }
-        /* Responsive circle sizes */
-        @media (max-width: 768px) {
-            .feature-img { width: clamp(120px, 40vw, 260px); }
-        }
-        @media (max-width: 480px) {
-            .feature-img { width: clamp(100px, 60vw, 220px); }
-        }
-        @media (min-width: 1400px) {
-            .feature-img { width: 380px; }
-        }
-        .feature-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; color: var(--text-dark); font-size: 1.03rem; line-height: 1.5; }
-        .check { color: #00c853; font-weight: bold; }
-
-        /* Feature text and headings */
-        .feature-section p { font-size: clamp(1rem, 1.2vw + 0.9rem, 1.1rem); color: rgba(8,21,39,0.9); line-height: 1.6; margin-bottom: 18px; }
-        .feature-section h3 { font-size: clamp(1.4rem, 2.2vw + 0.8rem, 1.95rem); color: #071E3B; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.2px; position: relative; padding-left: 20px; }
-        .feature-section h3::before { content: '';
-            position: absolute;
-            left: 6px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 64%;
-            background: linear-gradient(180deg, #2f76d6 0%, #5aa3ff 100%);
-            border-radius: 4px;
-            opacity: 0.98;
-        }
-        @media (max-width: 768px) {
-            .feature-section h3 { padding-left: 14px; }
-            .feature-section h3::before { left: 0; width: 4px; height: 56%; }
-        }
-
-        /* Center checklist text on mobile */
-        @media (max-width: 600px) {
-            .feature-list { display: grid; grid-auto-rows: auto; gap: 10px; justify-items: center; padding-left: 0; }
-            .feature-list li { display: flex; justify-content: center; text-align: center; white-space: normal; padding: 6px 12px; }
-            .feature-list li .check { margin-right: 8px; }
-        }
-
-        /* Badge for features */
-        .feature-badge { display: inline-block; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(10,32,64,0.06); }
-        .feature-badge--dev { background: #e3f2fd; color:#1565c0; }
-        .feature-badge--ecom { background: #fff3e0; color:#ef6c00; }
-        .feature-badge--growth { background: #e8f5e9; color:#2e7d32; }
-
-        /* --- CLIENTS SECTION --- */
-        .clients-section {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-            margin-top: -60px;
-            z-index: 5;
-            position: relative;
-        }
-        .clients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 50px; }
-        .client-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 30px 20px; border-radius: 12px; transition: 0.3s; }
-        .client-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-5px); }
-
-        /* --- FOOTER --- */
-        footer { background-color: #071f46; color: rgba(255,255,255,0.85); padding: 60px 0 30px; font-size: 0.95rem; }
-        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 28px; }
-        .footer-brand { flex: 2; }
-        .footer-brand .footer-logo { color: white; font-weight: 700; font-size: 1.25rem; text-decoration: none; }
-        .footer-brand p { color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.4; }
-        .footer-links { display: flex; gap: 40px; }
-        .footer-links h4, .footer-contact h4 { color: white; margin-bottom: 12px; }
-        .footer-links a, .footer-contact a { display: block; color: rgba(255,255,255,0.75); margin-bottom: 8px; font-size: 0.95rem; }
-        .footer-contact { text-align: right; }
-        .footer-contact a { color: rgba(255,255,255,0.9); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px; }
-        .footer-bottom .footer-bottom-grid { display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
-        .footer-bottom a { color: rgba(255,255,255,0.75); text-decoration: none; }
-        .footer-bottom a:hover { text-decoration: underline; color: white; }
-
-        @media (max-width: 768px) {
-            .footer-content { flex-direction: column; gap: 16px; }
-            .footer-contact { text-align: left; }
-            .footer-bottom .footer-bottom-grid { flex-direction: column; align-items: flex-start; gap: 8px; }
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero { height: auto; padding: 150px 0 100px; }
-            .hero h1 { font-size: 2.5rem; }
-            .zig-zag-row, .zig-zag-row.reverse { flex-direction: column; text-align: center; }
-            .intro-grid { flex-direction: column; align-items: center; }
-            .nav-links { display: none; }
-            .menu-toggle { display: block; }
-        }
-                /* The Grid System */
-        .card-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Stacked on mobile */
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* PC Side-by-Side View */
-        @media (min-width: 768px) {
-            .card-grid {
-                grid-template-columns: 1fr 1fr; /* Two columns on PC */
-            }
-        }
-
-        /* Modern Card Styling */
-        .modern-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 1px solid #eee;
-        }
-
-        /* The Uplift Effect */
-        .modern-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            border-color: #d1d1d1;
-        }
-
-        /* Elegant Image Zoom */
-        .card-image-wrapper {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease-in-out;
-        }
-
-        .modern-card:hover .card-image {
-            transform: scale(1.1);
-        }
-
-        /* Typography Styling */
-        .card-content {
-            padding: 2.5rem;
-        }
-
-        .card-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-            letter-spacing: -0.5px;
-        }
-
-        .card-content p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #555;
-            font-weight: 300;
-        }
-
-        .card-link {
-            color: #0044cc;
-            text-decoration: none;
-            font-weight: 400;
-            border-bottom: 1px solid transparent;
-            transition: border 0.3s ease;
-        }
-
-        .card-link:hover {
-            border-bottom: 1px solid #0044cc;
-        }
-        .clients-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 40px 0;
-}
-
-.client-card {
-    position: relative;
-    background: #ffffff;
-    padding: 40px 30px;
-    border: 1px solid #f0f0f0;
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden; /* Clips the flourish animation */
-}
-
-/* The Accent Line Flourish */
-.accent-line {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 4px;
-    background: #0044cc; /* Replace with your brand color */
-    transform: scaleY(0.2); /* Small line by default */
-    transition: transform 0.4s ease;
-    transform-origin: center;
-}
-
-.client-card:hover .accent-line {
-    transform: scaleY(1); /* Full height on hover */
-}
-
-/* Background Numbering Flourish */
-.flourish {
-    position: absolute;
-    right: -10px;
-    bottom: -10px;
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    color: rgba(0, 0, 0, 0.03); /* Extremely subtle watermarked number */
-    font-style: italic;
-    transition: all 0.4s ease;
-}
-
-.client-card:hover .flourish {
-    color: rgba(0, 68, 204, 0.08);
-    transform: translateY(-10px);
-}
-
-/* Typography */
-.client-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: #1a1a1a;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
-}
-
-.client-type {
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    color: #999;
-    font-weight: 500;
-}
-
-/* Card Hover Elevation */
-.client-card:hover {
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    border-color: transparent;
-    cursor: pointer;
-}
-
-.client-card:hover .client-name {
-    color: #c9d5ecde;
-}
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
@@ -691,7 +65,7 @@
                 <a href="#services">Services</a>
                 <a href="#clients">Clients</a>
                 <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                <a href="#contact">Get Started</a>
             </nav>
         </div>
     </header>
@@ -699,15 +73,11 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <main id="main">
     <section class="hero">
-        <div class="waves-container">
-            <div class="wave w1"></div>
-            <div class="wave w2"></div>
-            <div class="wave w3"></div>
-        </div>
-        
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
         <div class="container hero-content">
-            <h1>Expert Web & E-Commerce Development in East Texas</h1>
-            <p>Usability. Functionality. Performance. We build digital experiences that drive growth.</p>
+            <h1>Web Development & Digital Marketing for East Texas Small Businesses</h1>
+            <p>From high-performance SEO landing pages to video production and paid ads — one local team to grow your business online.</p>
             
             <div class="cta-group">
                 <a href="#contact" class="btn btn-primary">Start Your Project</a>
@@ -718,9 +88,9 @@
 
     <section class="intro-band">
         <div class="container">
-            <h2>Digital solutions that work as hard as you do.</h2>
-            <p>We combine clean code with modern design principles to elevate your business.</p>
-            
+            <h2>Everything your local business needs to grow online — under one roof.</h2>
+            <p>We work with small business budgets and deliver big-agency results right here in East Texas.</p>
+
             <div class="intro-grid">
                 <div class="intro-item">
                     <span class="intro-icon">🚀</span>
@@ -732,62 +102,91 @@
                     <h3>Security First</h3>
                     <p>Built with enterprise-grade security practices to protect your customer data.</p>
                 </div>
+                <div class="intro-item">
+                    <span class="intro-icon">📣</span>
+                    <h3>Full-Service Agency</h3>
+                    <p>Web, media, ads, and content — one local team handles it all so you can focus on running your business.</p>
+                </div>
             </div>
         </div>
+        <div class="flourish-divider" aria-hidden="true"></div>
     </section>
 
-    <section class="feature-section feature-bg-1" id="services">
-        <div class="container zig-zag-row">
-            <div class="text-col">
-                <div class="feature-badge feature-badge--dev">DEVELOPMENT</div>
-                <h3>Custom Web Development</h3>
-                <p>We don't just use templates; we build robust architectures tailored to your specific business logic. From simple landing pages to complex web applications.</p>
-                <ul class="feature-list">
-                    <li><span class="check">✓</span> Responsive Mobile-First Design</li>
-                    <li><span class="check">✓</span> Progressive Web Apps (PWA)</li>
-                    <li><span class="check">✓</span> API Integrations & Automation</li>
-                </ul>
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="services-header">
+                <h2>What We Do</h2>
+                <p>Full-service digital solutions built for East Texas small businesses.</p>
             </div>
-            <div class="img-col">
-                <img src="assets/images/web-development.jpg" alt="Developer writing code on a laptop" class="feature-img" loading="lazy">
-            </div>
-        </div>
-    </section>
+            <div class="services-grid">
 
-    <section class="feature-section feature-bg-2">
-        <div class="container zig-zag-row reverse">
-            <div class="text-col">
-                <div class="feature-badge feature-badge--ecom">E-COMMERCE</div>
-                <h3>Easy Shopping Experiences</h3>
-                <p>Turn visitors into loyal customers with intuitive e-commerce flows. We focus on reducing friction at checkout and showcasing products beautifully.</p>
-                <ul class="feature-list">
-                    <li><span class="check">✓</span> Inventory Management Systems</li>
-                    <li><span class="check">✓</span> Secure Payment Gateways</li>
-                    <li><span class="check">✓</span> User-Friendly Cart Functionality</li>
-                </ul>
-            </div>
-            <div class="img-col">
-                <img src="assets/images/ecommerce.jpg" alt="E-commerce product listing and checkout" class="feature-img" loading="lazy">
-            </div>
-        </div>
-    </section>
+                <div class="service-card service-card--dev">
+                    <div class="service-card-top">
+                        <div class="service-icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <span class="service-tag">Development</span>
+                    </div>
+                    <h3>Custom Web Development</h3>
+                    <p>We build fast, mobile-first websites tailored to your business — from high-converting SEO landing pages to full custom web applications built for growth.</p>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> Responsive Mobile-First Design</li>
+                        <li><span class="check">✓</span> High-Performance SEO Landing Pages</li>
+                        <li><span class="check">✓</span> Custom Web Applications & Automations</li>
+                    </ul>
+                </div>
 
-    <section class="feature-section feature-bg-1" style="padding-top:50px;">
-        <div class="container zig-zag-row">
-            <div class="text-col">
-                <div class="feature-badge feature-badge--growth">GROWTH</div>
-                <h3>SEO & Digital Marketing</h3>
-                <p>A beautiful site is useless if no one sees it. We implement local SEO strategies specifically designed for the East Texas market.</p>
-                <ul class="feature-list">
-                    <li><span class="check">✓</span> Keyword Research & Strategy</li>
-                    <li><span class="check">✓</span> Content Optimization</li>
-                    <li><span class="check">✓</span> Local Map Pack Ranking</li>
-                </ul>
-            </div>
-            <div class="img-col">
-                <img src="assets/images/seo-analytics.jpg" alt="SEO analytics dashboard showing growth charts" class="feature-img" loading="lazy">
+                <div class="service-card service-card--ecom">
+                    <div class="service-card-top">
+                        <div class="service-icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
+                        </div>
+                        <span class="service-tag">E-Commerce</span>
+                    </div>
+                    <h3>Easy Shopping Experiences</h3>
+                    <p>Turn visitors into loyal customers with intuitive e-commerce flows. We focus on reducing friction at checkout and showcasing your products beautifully.</p>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> Inventory Management Systems</li>
+                        <li><span class="check">✓</span> Secure Payment Gateways</li>
+                        <li><span class="check">✓</span> User-Friendly Cart Functionality</li>
+                    </ul>
+                </div>
+
+                <div class="service-card service-card--seo">
+                    <div class="service-card-top">
+                        <div class="service-icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                        </div>
+                        <span class="service-tag">Growth</span>
+                    </div>
+                    <h3>SEO & Paid Advertising</h3>
+                    <p>A great website is useless if no one finds it. We run targeted SEO campaigns and paid ads built specifically for East Texas businesses ready to grow their local reach.</p>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> SEO Reviews & Keyword Strategy</li>
+                        <li><span class="check">✓</span> Google & Meta Paid Ads</li>
+                        <li><span class="check">✓</span> Local Map Pack Ranking</li>
+                    </ul>
+                </div>
+
+                <div class="service-card service-card--media">
+                    <div class="service-card-top">
+                        <div class="service-icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                        </div>
+                        <span class="service-tag">Media</span>
+                    </div>
+                    <h3>Video, Photography & Content</h3>
+                    <p>Your story told visually. We produce video content, professional photography, and written content that captures your brand and drives engagement across every platform.</p>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> Video Production</li>
+                        <li><span class="check">✓</span> Professional Photography</li>
+                        <li><span class="check">✓</span> Content Writing & Email Campaigns</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
+        <div class="flourish-divider flourish-divider--on-light" aria-hidden="true"></div>
     </section>
 
     <section class="clients-section" id="clients">
@@ -835,6 +234,7 @@
     </div>
 </div>
         </div>
+        <div class="flourish-divider" aria-hidden="true"></div>
     </section>
 
     <section id="about" class="feature-section">
@@ -859,13 +259,37 @@
                 </div>
                 <div class="card-content">
                     <h2>Contact</h2>
-                    <p>Ready to start? Email us at <a href="mailto:hello@securitytechlabs.com" class="card-link">hello@securitytechlabs.com</a> or call <a href="tel:+1-555-555-5555" class="card-link">(555) 555-5555</a>.</p>
+                    <p>Ready to start? Email us at <a href="mailto:hello@securitytechlabs.com" class="card-link">hello@securitytechlabs.com</a> or call <a href="tel:+12143260012" class="card-link">(214) 326-0012</a>.</p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="flourish-divider flourish-divider--on-light" aria-hidden="true"></div>
 </section>
 </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container contact-inner">
+            <div class="contact-copy">
+                <h2>Ready to Grow Your Business Online?</h2>
+                <p>Tell us about your project and we'll get back to you within one business day.</p>
+                <ul class="contact-perks">
+                    <li><span class="check">✓</span> Free initial consultation</li>
+                    <li><span class="check">✓</span> No contracts — cancel any time</li>
+                    <li><span class="check">✓</span> Local East Texas team</li>
+                </ul>
+                <div class="contact-direct">
+                    <a href="mailto:hello@securitytechlabs.com">hello@securitytechlabs.com</a>
+                    <a href="tel:+12143260012">(214) 326-0012</a>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <!-- Replace YOUR_FORM_ID with your Tally form ID once generated -->
+                <iframe data-tally-src="https://tally.so/embed/YOUR_FORM_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Contact form"></iframe>
+                <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+            </div>
+        </div>
+    </section>
     </main>
 
     <footer>
@@ -886,16 +310,17 @@
                     <h4>Services</h4>
                     <a href="#services">Web Design</a>
                     <a href="#services">E-Commerce</a>
-                    <a href="#services">SEO Audit</a>
+                    <a href="#services">SEO & Paid Ads</a>
+                    <a href="#services">Media & Content</a>
                 </div>
             </nav>
 
             <div class="footer-contact">
                 <h4>Contact</h4>
                 <a href="mailto:hello@securitytechlabs.com">hello@securitytechlabs.com</a>
-                <a href="tel:+15555555555">(555) 555-5555</a>
+                <a href="tel:+12143260012">(214) 326-0012</a>
                 <div class="socials" style="margin-top:8px;">
-                    <a href="#" aria-label="Twitter" style="margin-right:8px;color:rgba(255,255,255,0.75)">🐦</a>
+                    <a href="https://www.facebook.com/securitytechlabs" aria-label="Facebook" target="_blank" rel="noopener" style="margin-right:8px;color:rgba(255,255,255,0.75)">fb</a>
                     <a href="#" aria-label="LinkedIn" style="color:rgba(255,255,255,0.75)">in</a>
                 </div>
             </div>
@@ -910,6 +335,66 @@
     </footer>
 
     <script>
+        // Particle network hero animation
+        (function() {
+            var canvas = document.getElementById('hero-canvas');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var particles = [];
+            var count, raf;
+            var maxDist = 150;
+
+            function resize() {
+                canvas.width  = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                count = canvas.width < 600 ? 40 : 72;
+                particles = [];
+                for (var i = 0; i < count; i++) particles.push(mkParticle());
+            }
+
+            function mkParticle() {
+                return {
+                    x:  Math.random() * canvas.width,
+                    y:  Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.38,
+                    vy: (Math.random() - 0.5) * 0.38,
+                    r:  Math.random() * 1.5 + 1
+                };
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (var i = 0; i < particles.length; i++) {
+                    var p = particles[i];
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height)  p.vy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.55)';
+                    ctx.fill();
+                    for (var j = i + 1; j < particles.length; j++) {
+                        var q  = particles[j];
+                        var dx = p.x - q.x, dy = p.y - q.y;
+                        var d  = Math.sqrt(dx * dx + dy * dy);
+                        if (d < maxDist) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(q.x, q.y);
+                            ctx.strokeStyle = 'rgba(255,255,255,' + ((1 - d / maxDist) * 0.13) + ')';
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                raf = requestAnimationFrame(draw);
+            }
+
+            resize();
+            draw();
+            window.addEventListener('resize', resize, { passive: true });
+        })();
+
         // Service worker registration (safe logging)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
